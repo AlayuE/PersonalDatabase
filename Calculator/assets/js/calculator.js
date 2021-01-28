@@ -1,149 +1,206 @@
 let number1;
 let number2;
-let input=prompt("Select your operation:\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n5.Maximum\n6.Minimum\n7.Average\n8.Square\n9.Modulus\n10.Factorial");
 
-// function defination
+do{
+    var input=prompt(`Select your operation:
+            1.Addition 
+            2.Subtraction 
+            3.Multiplication
+            4.Division
+            5.Maximum
+            6.Minimum
+            7.Average
+            8.Square
+            9.Modulus
+            10.Factorial
+            11.Exit`);
 
-function Sub(number1,number2){
-    return number1 - number2;
-}
-
-function div(number1,number2){
-    return number1 / number2;
-}
-function Max(number1,number2){
-
-    if(number1<number2){
-
-        return number2;
-
-    }else if(number1>number2){
-
-        return number1;
-    }else{
-        alert("Both are equal");
-    }
-}
-
-function Min(number1,number2){
-   
-    if(number1>number2){
-
-        return number2;
-
-    }else if(number1<number2){
-
-        return number1;
-    }else{
-        alert("Both are equal");
-    }
-}
-
-function Average(number1,number2){
-    return (number1 + number2)/2;
-}
-
-function Square(number1){
-    return number1 * number1;
-}
-
-function Modulus(number1,number2){
-    return number1 % number2;
-}
-
-function Factorial(number1){
-    factorial=1;
-    for (i=1;i<(number1+1);i++){
-        factorial *= i;
-    }
-    return factorial;
-}
 
 // matching the user selection with operions
 if(parseInt(input)==1){
 
-    let input = new Array();
-let numberoffInput=prompt("Enter the amount of your numbers");
+     // IIFE
+     (function (){
 
-for (let i = 0; i < parseInt(numberoffInput); i++) {
-    input[i] = prompt("Enter your numbers ");
-}
-
-
-function add( ){
-    var sum=0;
-    for(let i=0; i<input.length; i++){
-        sum = sum +parseInt(input[i]);
+        let input = new Array();
+        let numberoffInput=prompt("Enter the amount of your numbers");
         
-    }
-    return sum;
-}
-alert("Answer:" + " "+ add());
+        for (let i = 0; i < parseInt(numberoffInput); i++) {
+            input[i] = prompt("Enter your numbers ");
+        } 
+        function add( ){
+            var sum=0;
+            for(let i=0; i<input.length; i++){
+                sum = sum +parseInt(input[i]);
+                
+            }
+            return sum;
+        }
+        alert("Answer:" + " "+ add());
+    })();
 
 }else if(parseInt(input)==2){
-     num1=prompt("Enter first number:");
-     num2=prompt("Enter second number:");
-    alert("Answer:" + " " + Sub(parseInt(num1),parseInt(num2)));
+
+    // IIFE
+    (function (){
+
+    num1=prompt("Enter first number:");
+    num2=prompt("Enter second number:");
+    alert("Answer:" + " " +(parseInt(num1)-parseInt(num2)));
+    }
+
+)();
 
 }else if(parseInt(input)==3){
-    
-    let input = new Array();
-let numberoffInput=prompt("Enter the amount of your numbers");
 
-for (let i = 0; i < parseInt(numberoffInput); i++) {
-    input[i] = prompt("Enter your numbers ");
-}
+     // IIFE
+     (function (){
 
-
-function mul( ){
-    var multi=1;
-    for(let i=0; i<input.length; i++){
-        multi = multi *parseInt(input[i]);
+        let input = new Array();
+        let numberoffInput=prompt("Enter the amount of your numbers");
         
-    }
-    return multi;
-}
-
-alert("Answer:" + " "+ mul());
+        for (let i = 0; i < parseInt(numberoffInput); i++) {
+            input[i] = prompt("Enter your numbers ");
+        }
+        
+        function mul( ){
+            var multi=1;
+            for(let i=0; i<input.length; i++){
+                multi = multi *parseInt(input[i]);
+                
+            }
+            return multi;
+        }
+        alert("Answer:" + " "+ mul());
+    })();
 
 }else if(parseInt(input)==4){
-    num1=prompt("Enter first number:");
-    num2=prompt("Enter second number:");
-    if(parseInt(num2)==0){
-        alert("Denominator can't be zero");
-    }else{
-        alert("Answer:" + " " + div(parseInt(num1),parseInt(num2)));
-    }
+
+    // IIFE
+    (function (number1,number2){
+
+        num1=prompt("Enter first number:");
+        num2=prompt("Enter second number:");
+
+            if(parseInt(num2)==0){
+                alert("Denominator can't be zero");
+            }else{
+                alert("Answer:" + " " +(parseInt(num1)/parseInt(num2)));
+            }
+
+    })();
 
 }else if(parseInt(input)==5){
-    num1=prompt("Enter first number:");
-    num2=prompt("Enter second number:");
-   alert("Answer:" + " " + Max(parseInt(num1),parseInt(num2)));
+    //changing finding maximum of two numbers to maximum of an array
+    
+    // IIFE
+    (function (){
+        let input = new Array();
+        let numberoffInput=prompt("Enter the amount of your numbers");
+    
+    for (let i = 0; i < parseInt(numberoffInput); i++) {
+        input[i] = prompt("Enter your numbers ");
+    }
+    var maximum = input[0];
+    for (let i = 1; i < input.length; ++i) {
+        if (input[i] > maximum) {
+            maximum = input[i];
+    }
+ }
+
+    alert("Answer:" + " " + maximum);
+
+})();
+
 
 }else if(parseInt(input)==6){
-    num1=prompt("Enter first number:");
-    num2=prompt("Enter second number:");
-   alert("Answer:" + " " + Min(parseInt(num1),parseInt(num2)));
+
+    //changing finding minimum of two numbers to minimum of an array
+    
+    // IIFE
+    (function (){
+        let input = new Array();
+        let numberoffInput=prompt("Enter the amount of your numbers");
+    
+    for (let i = 0; i < parseInt(numberoffInput); i++) {
+        input[i] = prompt("Enter your numbers ");
+    }
+    var minimum = input[0];
+    for (let i = 1; i < input.length; ++i) {
+        if (input[i] < minimum) {
+            minimum = input[i];
+    }
+ }
+
+    alert("Answer:" + " " + minimum);
+
+})();
+
 
 }else if(parseInt(input)==7){
-    num1=prompt("Enter first number:");
-    num2=prompt("Enter second number:");
-   alert("Answer:" + " " + Average(parseInt(num1),parseInt(num2)));
+     //changing finding average of two numbers to average of an array
+    
+    // IIFE
+    (function (){
+        let input = new Array();
+        let numberoffInput=prompt("Enter the amount of your numbers");
+    
+    for (let i = 0; i < parseInt(numberoffInput); i++) {
+        input[i] = parseInt(prompt("Enter your numbers "));
+    }
+    
+    var total = 0;
+    for(var i = 0; i < input.length; i++) {
+        total += input[i];
+    }
+    var average = total / input.length;
+
+    alert("Answer:" + " " + average);
+
+})();
+
 
 }else if(parseInt(input)==8){
-    num1=prompt("Enter your number:");
-   alert("Answer:" + " " + Square(parseInt(num1)));
+    // IIFE
+    (function (){
+
+        num1=prompt("Enter number:");
+        alert("Answer:" + " " +(parseInt(num1)*parseInt(num1)));
+        }
+    
+    )();
 
 }else if(parseInt(input)==9){
-    num1=prompt("Enter first number:");
-    num2=prompt("Enter second number:");
-   alert("Answer:" + " " + Modulus(parseInt(num1),parseInt(num2)));
+     // IIFE
+     (function (){
+
+        num1=prompt("Enter first number:");
+        num2=prompt("Enter second number:");
+        alert("Answer:" + " " +(parseInt(num1)% parseInt(num2)));
+        }
+    
+    )();
 
 }else if(parseInt(input)==10){
-    num1=prompt("Enter your number:");
-   alert("Answer:" + " " + Factorial(parseInt(num1)));
+
+    // IIFE
+    (function (){
+
+        num1=prompt("Enter number:");
+        function Factorial(number1){
+            factorial=1;
+            for (i=1;i<(number1+1);i++){
+                factorial *= i;
+            }
+            return factorial;
+        }
+        alert("Answer:" + " " + Factorial(parseInt(num1)));
+    })();
+
 
 }else{
-    alert("Please enter the correct choice");
+    alert("Thanks for using this app");
 }
 
+
+}while(input != 11)
